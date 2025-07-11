@@ -61,7 +61,7 @@ class FileTypeService {
             return [
                 'path' => $filePath,
                 'html' => "<i class='fas fa-link' aria-hidden='true'></i>",
-                'folder' => '<a href="'.$href.'">'.$file->getFilename().'</a>',
+                'folder' => '<a href="'.$href.'">'.$file->getFilename().'&nbsp;&rarr;&nbsp;'.$file->getLinkTarget().'</a>',
             ];
         }
 
