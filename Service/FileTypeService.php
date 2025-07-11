@@ -19,7 +19,7 @@ class FileTypeService {
     public function __construct(private RouterInterface $router, private Environment $twig) {
     }
 
-    public function preview(FileManager $fileManager, SplFileInfo $file) {
+    public function preview(FileManager $fileManager, SplFileInfo $file): array {
 
         if ($fileManager->getImagePath()) {
             $filePath = $fileManager->getImagePath().rawurlencode($file->getFilename());
@@ -54,6 +54,8 @@ class FileTypeService {
         if ('link' === $type) {
             return $this->preview($fileManager, new SplFileInfo($file->getRealPath()));
         }
+
+        return [];
     }
 
     public function accept($type): bool|string {
