@@ -51,6 +51,9 @@ class FileTypeService {
                 'folder' => '<a  href="'.$href.'">'.$file->getFilename().'</a>',
             ];
         }
+        if ('link' === $type) {
+            return $this->preview($fileManager, new SplFileInfo($file->getRealPath()));
+        }
     }
 
     public function accept($type): bool|string {
